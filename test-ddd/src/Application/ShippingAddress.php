@@ -56,6 +56,17 @@ class ShippingAddress implements ShippingAddressInterface
         $this->repository->save($address);
     }
 
+    public function delete(ShippingAddressId $addressUuid): void
+    {
+        if (!$address = $this->repository->get($addressUuid)) {
+            throw ShippingAddressException::notFound((string) $addressUuid);
+        }
+        dd($address);
+
+
+        $this->repository->delete($address);
+    }
+
     public function countOfAddress(ClientEntity $client): int
     {
         return (int) $this->repository->countOfAddress($client);

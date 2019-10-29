@@ -10,5 +10,6 @@ interface ShippingAddressInterface
 {
     public function add(ClientId $clientId, array $data): string;
     public function update(ShippingAddressId $shippingAddressId, array $data): void;
+    public function delete(ShippingAddressId $shippingAddressId): void;
     public function getMaxLimit(): int;
 }

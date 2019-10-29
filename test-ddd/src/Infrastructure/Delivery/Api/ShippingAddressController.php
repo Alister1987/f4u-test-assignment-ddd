@@ -41,4 +41,17 @@ class ShippingAddressController
         ]);
     }
 
+    /**
+     * @Route("/{addressUuid}", name="delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, ShippingAddressInterface $manager)
+    {
+        $addressUuid = ShippingAddressId::fromString($request->get('addressUuid'));
+        $manager->delete($addressUuid, $request->request->all());
+
+        return new JsonResponse([
+            "success" => true
+        ]);
+    }
+
 }
