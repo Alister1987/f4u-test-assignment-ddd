@@ -34,11 +34,6 @@ final class ClientRepository implements ClientRepositoryInterface
             ->getQuery()
             ->getSingleResult();
 
-        if(null === $client) {
-           // throw new WishNotFoundException($wishId);
-            //@todo: ----
-        }
-
         return $client;
     }
 

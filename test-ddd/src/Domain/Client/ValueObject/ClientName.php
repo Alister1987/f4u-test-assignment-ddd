@@ -11,8 +11,6 @@ class ClientName
 
     public function __construct(string $firstName, string $lastName)
     {
-        //@todo: need add validation for check empty field
-
         $this->firstName = $firstName;
         $this->lastName = $lastName;
     }
