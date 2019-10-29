@@ -61,8 +61,10 @@ class ShippingAddress implements ShippingAddressInterface
         if (!$address = $this->repository->get($addressUuid)) {
             throw ShippingAddressException::notFound((string) $addressUuid);
         }
-        dd($address);
 
+        if ($address->isDefault()) {
+            throw ShippingAddressException::defaultAddress();
+        }
 
         $this->repository->delete($address);
     }
